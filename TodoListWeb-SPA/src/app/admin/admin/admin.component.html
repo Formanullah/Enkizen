@@ -1,0 +1,42 @@
+<div class="row col-md-12">
+  <div class="col-md-2">
+      <div class="nav flex-column nav-pills bg-light " id="v-pills-tab" role="tablist" aria-orientation="vertical"
+        style="height: 133%">
+        <a class="nav-link active " id="v-pills-dash-tab" data-toggle="pill" [routerLink]="['./dashboard']" role="tab"
+          aria-controls="v-pills-dash" aria-selected="true" style="background-color: #f8f9fa;">
+
+          <h4><b style="color:blue;padding-left: 3%;">Dashboard</b></h4><br>
+        </a>
+
+        <h5 style="color: blue;margin-left: 12%;"><i class="fa fa-list " style="color: blue;"></i>&nbsp;Menu</h5>
+
+        <a class="nav-link ml-4" id="v-pills-classes-tab" data-toggle="pill" [routerLink]="['./dashboard']" role="tab"
+        aria-controls="v-pills-classes" aria-selected="false" style="color: black;">TodoList</a>
+
+        <a class="nav-link ml-4" id="v-pills-classes-tab" data-toggle="pill" [routerLink]="['./create']" role="tab"
+          aria-controls="v-pills-classes" aria-selected="false" style="color: black;">Create & Delete TodoList</a>
+
+        <a class="nav-link  ml-4" id="v-pills-subject-tab" data-toggle="pill" [routerLink]="['./userlist']" role="tab"
+          aria-controls="v-pills-subject" aria-selected="false" style="color: black;">User List</a>
+
+   
+
+        <a class="nav-link  ml-4" id="v-pills-topic-tab" data-toggle="pill" [routerLink]="['./completetasklist']" role="tab"
+          aria-controls="v-pills-topic" aria-selected="false" style="color: black;">Completed Task List</a>
+
+          <br>
+          <h5 style="color: blue;margin-left: 12%;"><i class="fa fa-lock " style="color: blue;"></i>&nbsp;Security</h5>
+          <a href="#" class="nav-link  ml-4" id="v-pills-login-tab" data-toggle="pill" (click)="logout()" role="tab"
+            aria-controls="v-pills-login" aria-selected="false" style="color: black;">Log Out</a>
+
+      </div>
+    </div>
+
+
+<div class="col-md-9">
+
+  <router-outlet></router-outlet>
+</div>
+
+
+</div>

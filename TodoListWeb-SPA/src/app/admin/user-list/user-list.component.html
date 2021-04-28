@@ -1,0 +1,32 @@
+<div class=" col-md-10 ml-5 mt-5">
+  <h5 style="text-align: center;color: darkred;font-size: 30px;">Table of Users</h5>
+
+  <table class="table table-bordered mt-5">
+    <thead style="background-color:rgb(0, 140, 255); text-align: center;">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>MobileNo</th>
+        <th>Address</th>
+        <th>Role</th>
+        <th>Created Date</th>
+
+      </tr>
+    </thead>
+    <tbody style=" text-align: center;">
+
+      <tr *ngFor="let user of users">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.mobileNo}}</td>
+        <td>{{user.address}}</td>
+        
+        <td>{{user.roleName}}</td>
+        <td>
+        {{user.createdDate | date}}
+      </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

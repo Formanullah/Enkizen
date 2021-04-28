@@ -1,0 +1,111 @@
+<section>
+  <div class="row col-md-12 mt-5" style="margin-left: 8%;">
+    <div class="col-md-4">
+      <h5 style="margin-left: 10%;color: darkred;font-size: 30px;">Add Class Base Subjects</h5>
+      <form #CreateTaskForm="ngForm" (ngSubmit)="crateTask()">
+        <div class="form-row col-md-12">
+          <div class=" col-md-10">
+            <div class="form-group ">
+              <label for="exampleFormControlSelect1">Users</label>
+              <select name="userId" [(ngModel)]="task.userId" required
+              class="form-control" id="exampleFormControlSelect1">
+              
+                <option disabled>Select a user</option>
+                <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="input-title">Task</label>
+              <input type="text" class="form-control" id="input-title" name="name" [(ngModel)]="task.taskName"
+                aria-describedby="titleHelp" placeholder="Enter subject">
+
+            </div>
+
+            <button [disabled]="! CreateTaskForm.valid" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+    <div class=" col-md-8">
+      <h5 style="text-align: center;color: darkred;font-size: 30px;">Table of User Task</h5>
+
+      <table class="table table-bordered mt-5">
+        <thead style="background-color:rgb(0, 140, 255); text-align: center;">
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Is Remove</th>
+            <th>Remove</th>
+
+          </tr>
+        </thead>
+        <tbody style=" text-align: center;">
+
+          <tr *ngFor="let task of tasks">
+            <td>{{task.user.name}}</td>
+            <td>{{task.user.roleId == 1? 'Regular' : 'Admin'}}</td>
+            <td>{{task.taskName}}</td>
+            <td>
+              {{task.isDone == true ? 'Complete': 'Incomplete'}}
+            </td>
+            <td>{{task.isDeleted == true ? 'Deleted' : 'Active'}}</td>
+            <td>
+              <button [disabled]="task.isDeleted == true" (click)="deleteTask(task.id)" class="btn btn-danger"><i class="fa fa-trash"></i> </button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+<!--     <div class="modal fade" id="staticBackdroppost2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 20%;">Update Class Base Subjects</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row col-md-12">
+                <div class=" col-md-10">
+                    <div class="form-group ">
+                        <label for="exampleFormControlSelect1">Class</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>class one</option>
+                          <option>class two</option>
+                          <option>class three</option>
+                        
+                        </select>
+                      </div>
+                      <div class="form-group ">
+                        <label for="exampleFormControlSelect1">Subject</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Bangla</option>
+                          <option>English</option>
+                          <option>Math</option>
+                        
+                        </select>
+                      </div>
+                  
+                    <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+      
+      </div>
+          
+          </form> 
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+        
+
+  </div>
+
+</section>

@@ -1,0 +1,33 @@
+<div class=" col-md-10 ml-5 mt-5">
+  <h5 style="text-align: center;color: darkred;font-size: 30px;">Table of Users Completed Task</h5>
+
+  <table class="table table-bordered mt-5">
+    <thead style="background-color:rgb(0, 140, 255); text-align: center;">
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Task</th>
+        <th>Status</th>
+        <th>Is Deleted</th>
+        <th>Created Date</th>
+
+      </tr>
+    </thead>
+    <tbody style=" text-align: center;">
+
+      <tr *ngFor="let task of tasks">
+        <td>{{task.user.name}}</td>
+        <td>{{task.user.roleId == 1? 'Regular' : 'Admin'}}</td>
+        <td>{{task.taskName}}</td>
+        <td>
+          {{task.isDone == true ? 'Complete': 'Incomplete'}}
+        </td>
+        <td>{{task.isDeleted == true ? 'Deleted' : 'Active'}}</td>
+        <td>
+        {{task.createdDate | date}}
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
